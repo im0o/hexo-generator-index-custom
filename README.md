@@ -1,17 +1,34 @@
-# hexo-generator-index
+# hexo-generator-index-custom
 
-[![Build Status](https://github.com/hexojs/hexo-generator-index/workflows/Tester/badge.svg?branch=master)](https://github.com/hexojs/hexo-generator-index/actions?query=workflow%3ATester)
-[![NPM version](https://badge.fury.io/js/hexo-generator-index.svg)](https://www.npmjs.com/package/hexo-generator-index)
-[![Coverage Status](https://img.shields.io/coveralls/hexojs/hexo-generator-index.svg)](https://coveralls.io/r/hexojs/hexo-generator-index?branch=master)
+![npm](https://img.shields.io/npm/v/hexo-generator-index-custom)
 
-Index generator for [Hexo].
+[中文文档](./README_zh.md)
+
+Custom Index generator for [Hexo].
 
 It generates an archive of posts on your homepage, according to the `index` or `archive` layout of your theme.
+
+## Difference
+
+- pin top
+
+both the `sticky` and `top` parameters in the post Front-matter can be used to pin the post to the top of the index page.
+
+> because of in the old version, hexo-generator-index cannot pin the post to the top of the index page
+>
+> many people use [hexo-generator-index-pin-top](https://github.com/Qyh-Q/hexo-generator-index-pin-top) to do this
+
+- hide posts
+
+use `hide: true` in in the post Front-matter to hide the post from the index page
+
 
 ## Installation
 
 ``` bash
-$ npm install hexo-generator-index --save
+$ npm uninstall hexo-generator-index
+
+$ npm install hexo-generator-index-custom --save
 ```
 
 ## Options
@@ -39,13 +56,33 @@ index_generator:
 
 ## Usage
 
-The `sticky` parameter in the post [Front-matter](https://hexo.io/docs/front-matter) will be used to pin the post to the top of the index page. Higher `sticky` means that it will be ranked first.
+The `sticky` or `top` parameter in the post [Front-matter](https://hexo.io/docs/front-matter) will be used to pin the post to the top of the index page. Higher `sticky` (or `top`) means that it will be ranked first.
+
+You can also use `sticky: true` or `top: true` to pin the post to the top of the index page.
 
 ```yml
 ---
 title: Hello World
 date: 2013/7/13 20:46:25
 sticky: 100
+---
+```
+
+```yml
+---
+title: Hello World
+date: 2013/7/13 20:46:25
+top: 100
+---
+```
+
+The `hide` parameter in the post Front-matter will be used to hide the post from the index page.
+
+```yml
+---
+title: Hello World
+date: 2013/7/13 20:46:25
+hide: true
 ---
 ```
 
@@ -56,5 +93,9 @@ If your theme define a non-archive `index` layout (e.g. About Me page), this plu
 ## License
 
 MIT
+
+[hexojs/Hexo](https://github.com/hexojs/hexo)
+
+[hexojs/hexo-generator-index](https://github.com/hexojs/hexo-generator-index)
 
 [Hexo]: http://hexo.io/
