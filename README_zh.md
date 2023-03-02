@@ -14,7 +14,7 @@
 
 `sticky` 与 `top` 参数在文章的 [Front-matter](https://hexo.io/docs/front-matter) 中可以使用来置顶文章。高的 `sticky` (或 `top`) 值意味着它会被排到最前面。
 
-> 因为在旧版本中，hexo-generator-index-custom 不能置顶文章到首页。
+> 因为在旧版本中，hexo-generator-index 不能置顶文章到首页。
 >
 > 大多数人使用 [hexo-generator-index-pin-top](https://github.com/Qyh-Q/hexo-generator-index-pin-top) 来实现置顶功能
 
